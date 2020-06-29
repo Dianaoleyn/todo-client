@@ -1,0 +1,34 @@
+@import "../../styles/_theming.scss";
+
+.progress {
+  position: absolute;
+  top: 0;
+  height: 5px;
+  z-index: 2;
+}
+
+.header {
+  position: absolute;
+  @include wrapperFlex(row, center, center);
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 82px;
+  background: $accent-color;
+  border-bottom: 1px solid #e5650f;;
+
+  &__content {
+    @include wrapperFlex(row, space-between, center);
+    width: 90%;
+    color: white;
+
+    &__text {
+
+    }
+
+    &-logo {
+      height: 70px;
+      width: 70px;
+    }
+  }
+}

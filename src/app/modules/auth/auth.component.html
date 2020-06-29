@@ -1,0 +1,24 @@
+<div class="block" [formGroup]="form">
+  <div class="block__item">
+    <mat-slide-toggle color="primary" formControlName="state">Войти</mat-slide-toggle>
+  </div>
+
+  <mat-form-field class="block__item">
+    <mat-label>Имя</mat-label>
+    <input matInput
+           formControlName="login"
+           pattern="^[a-zA-Z0-9]+$"
+           [required]="true"
+           minlength="6"
+           placeholder="Введите имя...">
+    <mat-error>{{loginErrorMessage}}</mat-error>
+  </mat-form-field>
+
+  <button mat-stroked-button
+          color="primary"
+          class="block__item"
+          (click)="auth()"
+          [disabled]="form.invalid">
+    {{!state ? 'Зарегистрироваться' : 'Войти'}}
+  </button>
+</div>

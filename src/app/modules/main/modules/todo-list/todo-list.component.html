@@ -1,0 +1,50 @@
+<div class="bottom">
+  <mat-form-field>
+    <mat-label>Поиск</mat-label>
+    <input matInput
+           type="text"
+           [formControl]="searchControl"
+           placeholder="Начните вводить...">
+  </mat-form-field>
+  <button mat-stroked-button color="primary"
+          (click)="onClickEdit()"
+          [disabled]="!selectedItemId">
+    Редактировать
+  </button>
+  <button mat-stroked-button color="primary"
+          (click)="onClickDelete()"
+          [disabled]="!selectedItemId">
+    Удалить
+  </button>
+</div>
+
+
+<div class="block">
+  <mat-table [dataSource]="filteredTodoList" matSort>
+    <!-- User name Definition -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Id</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+    </ng-container>
+
+    <!-- Age Definition -->
+    <ng-container matColumnDef="task">
+      <mat-header-cell *matHeaderCellDef> Task</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.task}} </mat-cell>
+    </ng-container>
+
+    <!-- Title Definition -->
+    <ng-container matColumnDef="publicationDate">
+      <mat-header-cell *matHeaderCellDef> PublicationDate</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.publicationDate | date}} </mat-cell>
+    </ng-container>
+
+    <!-- Header and Row Declarations -->
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"
+             [ngClass]="{'active': selectedItemId === row.id}"
+             (click)="onClickRow(row)"
+             class="row">
+    </mat-row>
+  </mat-table>
+</div>

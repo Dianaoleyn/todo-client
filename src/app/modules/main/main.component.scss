@@ -1,0 +1,12 @@
+@import "../../common/styles/_theming.scss";
+:host {
+  @include wrapperFlex(row, center, center);
+  width: 70%;
+  height: 430px;
+}
+
+.content {
+  width: 78%;
+  margin-left: 22%;
+  height: 100%;
+}

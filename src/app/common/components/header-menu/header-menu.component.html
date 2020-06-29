@@ -1,0 +1,14 @@
+<mat-progress-bar
+  *ngIf="progressBarState$ | async"
+  class="progress"
+  color="accent"
+  mode="indeterminate">
+</mat-progress-bar>
+<header class="header">
+  <div class="header__content">
+    <mat-icon svgIcon="lev" class="header__content-logo"></mat-icon>
+    <div class="header__content__text" *ngIf="login">
+      Вы вошли, как {{login}}
+    </div>
+  </div>
+</header>
